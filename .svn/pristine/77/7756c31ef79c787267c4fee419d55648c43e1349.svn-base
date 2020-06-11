@@ -1,0 +1,92 @@
+<?php
+	$sucursal = $_REQUEST['comboSucursal'];
+
+	if($sucursal == 'cedaEcatepec'){
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal Ceda Ecatepec Patente <br>
+			Dirección: Av.Central Nave E517 Colonia Santa Cruz Venta de Carpio, Ecatepec de Morelos
+			Estado de Mexico C.P. 55065 <br>Tel. 40005699<br>
+			Sucursal: Ceda Ecatepec 512 Genericos<br>
+			Dirección:Central de Abastos Nave E Local 512 colonia Santa Cruz Venta de Carpio, Ecatepec de Morelos
+			Estado de Mexico C.P.55065 <br>Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.2463497670497!2d-99.00602468572563!3d19.616763039850593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM3JzAwLjMiTiA5OcKwMDAnMTMuOCJX!5e0!3m2!1ses-419!2sco!4v1474127129219" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'tecamacCentro') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal Tecámac Centro<br>
+			Dirección: Av. 5 de Mayo S/N Tecámac de Felipe Villanueva centro, Tecámac
+			Estado de México C.P 55740 <br>tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.0014119411767!2d-98.97470168572409!3d19.712564036778108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDQyJzQ1LjIiTiA5OMKwNTgnMjEuMSJX!5e0!3m2!1ses-419!2sco!4v1473873745121" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'viaMorelos') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: Vía Morelos<br>
+			Dirección: Av. Via Morelos N°02 Colonia San Jose Jajalpa Ecatepec de Morelos
+			Estado de México C.P. 55090 <br>Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.8069410031235!2d-99.041075685726!3d19.592770040617893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM1JzM0LjAiTiA5OcKwMDInMjAuMCJX!5e0!3m2!1ses-419!2sco!4v1473886591977" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'cdCuau') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: Cd Cuauhtémoc <br>
+			Dirección: Circuito Cuauhtémoc, LT02 MZ 26 colonia Ciudad Cuauhtémoc, Ecatepec de Morelos
+			Estado de México C.P. 55067 <br> Tel 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.5616872441215!2d-98.99089668572523!3d19.64602803891356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM4JzQ1LjciTiA5OMKwNTknMTkuNCJX!5e0!3m2!1ses-419!2sco!4v1473886672836" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'ojodeAgua') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: Ojo de Agua <br>
+			Dirección:Boulevard Ojo de Agua MZ98 Lt01 colonia Ojo de Agua Tecámac 
+			Estado de México C.P. 55770 <br>Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.8766540067004!2d-99.0327386857247!3d19.67526703797592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDQwJzMwLjkiTiA5OcKwMDEnNTAuMCJX!5e0!3m2!1ses-419!2sco!4v1473886715112" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'sanPablo') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: San Pablo<br>
+			Dirección: Av. Prados Loc 18-19-20 Colonia Conjunto San Pablo, Tultitlán
+			estado de México C.P. 54930 <br>Tel.40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.243177950464!2d-99.08297168572493!3d19.65962803847756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM5JzM0LjYiTiA5OcKwMDQnNTAuOCJX!5e0!3m2!1ses-419!2sco!4v1473887512023" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'tecamacPrincipal') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: Tecámac La Principal<br>
+			Dirección: Carretera Mexico-Pachuca KM.38.5 Loc G Colonia Tecámac de Felipe Villanueva Centro
+			Estado de México C.P. 55740 <br>Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.0161857677076!2d-98.9768666857241!3d19.71193503679834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDQyJzQzLjAiTiA5OMKwNTgnMjguOCJX!5e0!3m2!1ses-419!2sco!4v1473887253325" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'rioja') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: La Rioja<br>
+			Dirreción: La rioja N°329 colonia residencial Zacatenco delegación Gustavo A. Madero México DF 
+			C.P.07369 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.84495990069!2d-99.12733368572744!3d19.505305043407564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMwJzE5LjEiTiA5OcKwMDcnMzAuNSJX!5e0!3m2!1ses-419!2sco!4v1473887300039" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'izcalli') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal: Izcalli <br>
+			Dirección: Valle de Eucaliptos N° 33 colonia Izcalli del Valle Tultitlán
+			Estado de México C.P 54945 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.9667054133506!2d-99.1869426857261!3d19.58592704083648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM1JzA5LjMiTiA5OcKwMTEnMDUuMSJX!5e0!3m2!1ses-419!2sco!4v1473887545712" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'df') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Centro <br>
+				Dirección: 5 de Febrero N°47-c colonia Centro de la Ciudad de México Area 8 Delegación Cuauhtémoc,México
+				Distrito Federal C.P. 06080<br> Tel. 40005699</div><<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6339882070115!2d-99.13723768572862!3d19.42821404585663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzQxLjUiTiA5OcKwMDgnMDYuMiJX!5e0!3m2!1ses-419!2sco!4v1473887595504" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'tultitlan') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Ceda Tultitlán <br>
+				Dirección: Casco de la Providencia S/N Nave 02 Bodega 09 y 10 colonia Ex-HDA Portales, Tultitlán
+				Estado de México C.P.54900 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.7078729750256!2d-99.14194668572526!3d19.639783039113613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM4JzIzLjIiTiA5OcKwMDgnMjMuMSJX!5e0!3m2!1ses-419!2sco!4v1473887579117" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'tezontepec') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Tezontepec <br>
+				Dirección: Plaza 16 de Enero S/N colonia Centro Villa de Tezontepec Estado de Hidalgo 
+				C.P. 43880<br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.056120581902!2d-98.82180868572141!3d19.87985203137955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDUyJzQ3LjUiTiA5OMKwNDknMTAuNiJX!5e0!3m2!1ses-419!2sco!4v1473887699930" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'ciudadAzteca') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Cd. Azteca <br>
+				Dirección: Boulevard de los Aztecas Mz509 Lt01 colonia Cd Azteca 1A Sección Ecatepec de Morelos 
+				Estado de México C.P. 55120 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.0112156777877!2d-99.0361166857268!3d19.54113204226625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDMyJzI4LjEiTiA5OcKwMDInMDIuMSJX!5e0!3m2!1ses-419!2sco!4v1473887720636" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	}  else if($sucursal == 'casas') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Casas Alemán <br>
+				Dirección: Puerto Mazatlán n°95 Colonia Casas Alemán, Delegación Gustavo A. Madero, México DF
+				C.P. 07580<br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.463724419897!2d-99.0862746857278!3d19.478675044254622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI4JzQzLjIiTiA5OcKwMDUnMDIuNyJX!5e0!3m2!1ses-419!2sco!4v1473887784819" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	}  else if($sucursal == 'e21') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Ceda Iztapalapa E21 <br>
+				Dirección: Bodega E-21 Colonia Central de Abastos, Delegacion Iztapalapa Distrito Federal 
+				C.P. 09040<br> Tel. 40005699<br>
+				Sucursal: Ceda Iztapala G45<br>
+				Dirreción: Bodega G45 Colonia Central de Abastos Iztapalapa México DF 
+				C.P.09040 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.8105521831453!2d-99.0945406857294!3d19.377354047467566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDIyJzM4LjUiTiA5OcKwMDUnMzIuNSJX!5e0!3m2!1ses-419!2sco!4v1473887817183" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	}  else if($sucursal == 'laredo') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Nuevo Laredo<br>
+				Dirección: Av. Río Bravo No.1, Colonia Nuevo Laredo, Ecatepec de Morelos, Estado de México 
+				C.P. 55080.<br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3759.206006512541!2d-99.0449206857263!3d19.575673041164066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM0JzMyLjQiTiA5OcKwMDInMzMuOCJX!5e0!3m2!1ses-419!2sco!4v1473887845118" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'neza') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Nezahualcóyotl <br>
+				Dirección: Av. Via Gustavo Baz Prada N°33 Colonia Benito Juarez Nezahualcóyotl 
+				Estado de México C.P. 57000 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.8878502025286!2d-99.02073068572882!3d19.417251046204314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzAyLjEiTiA5OcKwMDEnMDYuOCJX!5e0!3m2!1ses-419!2sco!4v1473887885876" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	} else if($sucursal == 'tecamacViaReal') {
+		echo '<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">
+				Sucursal: Vía Real, Tecámac. <br>
+				Dirección: Av. Vía Real s/n Local 2. Colonia San Antonio(de San Francisco Cuautliquixca) 
+				Estado de México C.P. 55768 <br> Tel. 40005699</div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.2094748035747!2d-99.02144328552139!3d19.661061886754933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f270db124f49%3A0xca2cad1b49059428!2sAv.+Via+Real%2C+San+Pablo+Tecalco%2C+M%C3%A9x.!5e0!3m2!1ses-419!2smx!4v1496166654671" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';
+	}
+?>

@@ -1,0 +1,374 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+
+<head>
+
+  <title>Contacto</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/slicknav.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/colors/green.css" media="screen" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link href="css/sweetalert.css" rel="stylesheet" />
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="js/modernizrr.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+  <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="js/jquery.appear.js"></script>
+  <script type="text/javascript" src="js/count-to.js"></script>
+  <script type="text/javascript" src="js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+  <script type="text/javascript" src="js/smooth-scroll.js"></script>
+  <script type="text/javascript" src="js/skrollr.js"></script>
+  <script type="text/javascript" src="js/jquery.parallax.js"></script>
+  <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+  <script type="text/javascript" src="js/jquery.slicknav.js"></script>  
+  <script type="text/javascript" src="js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.js"></script>  
+
+  <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script type="text/javascript">
+     function limpiarCajas() {
+         $(":text").each(function() {
+            $($(this)).val('');
+          });
+         $('#email').each(function() {
+            $($(this)).val('');
+         });
+         $('#mensaje').each(function() {
+            $($(this)).val('');
+         });
+      }
+       function soloLetras(e) {
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toLowerCase();
+          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+          especiales = [8, 37, 39, 46];
+          tecla_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              tecla_especial = true;
+              break;
+            }
+          }
+          if (letras.indexOf(tecla) == -1 && !tecla_especial)
+             return false;
+          }
+          function soloNumeros(e)
+          {
+            var keynum = window.event ? window.event.keyCode : e.which;
+            if ((keynum == 8) || (keynum == 46))
+              return true;
+            return /\d/.test(String.fromCharCode(keynum));
+          }
+    </script>
+
+</head>
+
+<body>
+  <!--Pestañas de redes sociales-->
+  <div class="cont_pestanias">
+    <a href="https://www.facebook.com/Farmacias-Sana-Sana-Gpo-Santoyo-189978141135355/" target="_blank">
+      <div class="facebookPestania">
+        <img src="images/logo_sociales/facebook_78404.png" border="0"/>
+      </div>
+    </a>
+    <a href="https://twitter.com/santoyosanasana" target="_blank">
+      <div class="twitterPestania">
+        <img src="images/logo_sociales/twitter_78404.png" border="0"/>
+      </div>
+    </a>
+  </div>
+  <!--Final de pestañas de redes sociales-->
+
+  <!-- Container -->
+  <div id="container">
+
+    <!-- Start Header -->
+    
+    <header class="clearfix">
+
+       <!-- Start Header ( Logo & Naviagtion ) -->
+      <div class="navbar navbar-default navbar-top" role="navigation" data-spy="affix" data-offset-top="50">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Stat Toggle Nav Link For Mobiles -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </button>
+            <!-- End Toggle Nav Link For Mobiles -->
+            <a class="navbar-brand" href="index.html"><img alt="" src="images/lOGO SANASANAREDUC.png"></a>
+          </div>
+          <div class="navbar-collapse collapse">
+            
+            <!-- Start Navigation List -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="index.html">Inicio</a>
+              </li>
+              <li><a href="about.html">Acerca de nosotros</a>
+              </li>
+              <li><a href="promociones.html">Promociones</a> 
+              </li>
+              <li><a class="active" href="contact.html">Contacto</a>
+              </li>
+              <li><a href="sucursales.php">Sucursales</a>
+              </li>
+              <li><a href="login.html">Inicia Sesión</a>
+              </li>
+            </ul>
+            <!-- End Navigation List -->
+          </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <ul class="wpb-mobile-menu">
+          <li><a href="index.html">Inicio</a>
+          </li>
+          <li><a href="about.html">Acerca de nosotros</a>
+          </li>
+          <li><a href="promociones.html">Promociones</a>
+          </li>
+          <li><a class="active" href="contact.html">Contacto</a>
+          </li>
+          <li><a href="sucursales.php">Sucursales</a>
+          </li>
+          <li><a href="login.html">Inicia sesión</a>
+          </li>
+        </ul>
+        <!-- Mobile Menu End -->
+
+      </div>
+      <!-- End Header ( Logo & Naviagtion ) -->
+
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-8">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Comunicate con nosotros</span></h4>
+
+            <!-- Start Contact Form -->
+            <form role="form" id="formularioContacto" data-toggle="validator" class="shake" method="POST">
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" id="nombre" name="nombre" style="border-color: #787878;" placeholder="Nombre" onkeypress="return soloLetras(event);">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="email" class="email" id="email" style="border-color: #787878;" name="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" id="telefono" name="telefono" style="border-color: #787878;" placeholder="Telefono" onkeypress="return soloNumeros(event);">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <input type="text" id="asunto" name="asunto" style="border-color: #787878;" placeholder="Asunto">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="controls">
+                  <textarea id="mensaje" name="mensaje" rows="7" style="border-color: #787878;" placeholder="Mensaje"></textarea>
+                </div>  
+              </div>
+
+              <button id="btnAceptar" name="btnAceptar" class="btn btn-success btn-lg">Enviar mensaje</button> 
+
+            </form>
+            <script>
+      $(document).ready(function() {
+        $("#formularioContacto").validate({
+            rules: {
+                nombre: {
+                  required: true
+                },
+                telefono: {
+                  required: true
+              },
+              email: {
+                required: true,
+                email: true
+              },
+              asunto: {
+                required: true,
+              },
+              mensaje: {
+                required: true,
+              }
+          },
+          messages: {
+              nombre: {
+                required: "<p align='center' class='text-danger'> * Debes ingresar tu nombre para el mensaje</p>",
+              }, 
+              telefono: {
+                required: "<p align='center' class='text-danger'> * Debes un ingresar un teléfono</p>"
+              },
+              email: {
+                required: "<p align='center' class='text-danger'> * Debes ingresar una cuenta de correo.</p>",
+                email: "<p align='center' class='text-danger'> * Ingresa un Email correcto </p>"
+              },
+              asunto: {
+                required: "<p align='center' class='text-danger'> * Debes ingresar un asunto</p>"
+              },
+              mensaje: {
+                required: "<p align='center' class='text-danger'> * Ingresa un mensaje</p>"
+              }
+          },
+          submitHandler: function(){
+              $.ajax({
+                    type: "POST",
+                    url: 'funciones/procesos/enviarEmail.php',
+                    data: $('#formularioContacto').serialize(),
+                    success: function(data) {
+                      if(data == 'error') {
+                          swal({title: "¡Error!",text: "Ha ocurrido un error al enviar el formularioContacto, por favor intentalo más tarde.", type: "error",closeOnConfirm: "Aceptar"});
+                      } else {
+                         swal({title: "¡Éxito!" ,text: " Tu mensaje se ha enviado correctamente, Gracias por contactar a Farmacias Sana Sana.", type: "success",closeOnConfirm: "Aceptar"});
+                        limpiarCajas();
+                      }
+                    }
+               });
+          }
+      });
+    });
+    </script>     
+            <!-- End Contact Form -->
+
+          </div>
+
+          <div class="col-md-4">
+
+            <!-- Classic Heading -->
+            <h4 class="classic-title"><span>Información</span></h4>
+
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:10px;"></div>
+
+            <!-- Info - Icons List -->
+            <ul class="icons-list">
+              <!--<li><i class="fa fa-globe">  </i> <strong>Dirección:</strong> </li>-->
+              <!--<li><i class="fa fa-envelope-o"></i> <strong>Email:</strong> </li>-->
+              <li><i class="fa fa-mobile"></i> <strong>Telefono: 40-00-56-99, Ext. 7001, 7002, 7003.</strong> </li>
+            </ul>
+
+            <!-- Divider -->
+            <div class="hr1" style="margin-bottom:15px;"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- End content -->
+
+<!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+<div class="row footer-widgets">
+
+<div class="col-md-3">
+
+<div class="footer-widget social-widget">
+<h4>SIGUENOS EN: <span class="head-line"></span></h4>
+<ul class="social-icons">
+<li>
+<a class="facebook" href="https://www.facebook.com/Farmacias-Sana-Sana-Gpo-Santoyo-189978141135355/"><i class="fa fa-facebook"></i></a>
+</li>
+<li>
+<a class="twitter" href="https://twitter.com/santoyosanasana"><i class="fa fa-twitter"></i></a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="col-md-3">
+</div>
+
+
+
+<div class="col-md-3">
+
+</div>
+
+
+
+<div class="col-md-3">
+<div class="footer-widget contact-widget">
+<p></p>
+<ul>
+<li><span>¿Tienes alguna duda?</span></li>
+<li><span>Teléfono: 40-00-56-99, Ext. 7001, 7002, 7003.</span></li>
+</ul>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="copyright-section">
+<div class="row">
+<div class="col-md-6">
+<p>Copyright &copy; 2017 by <a href="http://www.farmaciassanasana.com.mx">Farmacias Sana Sana.</a>  All Rights Reserved.</p>
+</div>
+</div>
+</div>
+
+</div>
+    </footer>
+    <!-- End Footer Section -->
+
+  </div>
+  <!-- End Container -->
+
+  <!-- Go To Top Link -->
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+      <!--Inicio de loader-->
+    <!--<div id="loader">
+    <div class="spinner">
+      <div class="f1078404_sup">
+        <div class="f978404_petit">
+          <div class="f1078404_fond">
+            <div class="f1078404">              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  </div>
+  <!--Final de loader-->
+  <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>

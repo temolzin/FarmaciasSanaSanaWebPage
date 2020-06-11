@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ENCUESTA</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#encuestaModal").modal.("show");
+		});
+	</script>
+</head>
+<body>
+
+
+	<!-- VENTANA MODAL -->
+	<div class="modal fade" id="encuestaModal" tabindex="-1" role="dialog" aria-labelledby="tituloEncuesta" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">			
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<img width="50px" height="50px" class="img-responsive" src="images\formularios\close.png" aria-hidden="true" />
+				</button>
+				<div class="modal-header">
+					<h1 align="center" class="modal-title" id="tituloEncuesta">ENCUESTA</h1>
+				</div>
+
+				<div class="container-fluid"> 
+					<form>
+					<br>
+						<!--EDAD DE LA PERSONA-->
+						<div class="row">
+							<div class="col-md-2"><label>EDAD:</label></div>
+							<div class="col-md-3"><input type="text" name="edad" class="form-control" id="edad"></div>								
+						</div>
+						<br>
+						<!--SEXO DE LA PERSONA-->
+						<div class="row">						
+							<div class="col-md-2"><label>SEXO:</label></div>
+							<div class="col-md-3">
+								<label class="radio-inline"><input type="radio" name="sexo" id="hombre">HOMBRE</label>
+								<label class="radio-inline"><input type="radio" name="sexo" id="mujer">MUJER</label>							
+							</div>
+						</div>
+						<br>
+						<!--SUCURSAL-->
+						<div class="row">
+							<div class="col-md-2"><label>SUCURSAL:</label></div>
+							<div class="col-md-3"><input type="text" name="sucursal" class="form-control" id="sucursal"></div>						
+						</div>
+						<br>
+						<!--FECHA-->
+						<div class="row">
+							<div class="col-md-2"><label>FECHA:</label></div>
+							<div class="col-md-3"><input type="text" name="fecha" class="form-control" id="fecha"></div>						
+						</div>
+						<br>
+						<!-- INSTRUCCIONES-->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">MARQUE CON UNA "X" LA OPCIÓN DE RESPUESTA PARA USTED</label></div>
+						</div>
+						<br>
+						<!-- PREGUNTA 1-->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">1. ¿HACE CUANTO TIEMPO HA ESTADO COMPRANDO PRODUCTOS EN NUESTRA SUCURSAL?</label></div>
+						</div>	
+						<!-- rADIO BUTTON -->
+						<div class="row">
+							<div class="col-md-8">
+								<ol>
+									<li><div class="radio"><label><input type="radio" name="tiempoCompra" id="seisMeses">HACE MENOS DE 6 MESES</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="tiempoCompra" id="masDeSeisMeses">DE 6 MESES A 1 AÑO</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="tiempoCompra" id="masDeUnAno">MÁS DE 1 AÑO A 3 AÑOS</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="tiempoCompra" id="masDeCinco">MÁS DE 5 AÑOS</label></div></li>
+								</ol>
+							</div>
+						</div>	
+						<br>
+						<!-- PREGUNTA 2-->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">2. ¿CON QUE FRECUENCIA NOS COMPRA?</label></div>
+						</div>	
+						<!-- rADIO BUTTON -->
+						<div class="row">
+							<div class="col-md-8">
+								<ol>
+									<li><div class="radio"><label><input type="radio" name="frecuenciaCompra" id="cadaSemana">CADA SEMANA</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="frecuenciaCompra" id="cadaMes">CADA MES</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="frecuenciaCompra" id="cadaTresMeses">CADA 3 MESES A 6 MESES</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="frecuenciaCompra" id="masDeDosanos">UNA O DOS VECES AL AÑOS</label></div></li>
+								</ol>
+							</div>
+						</div>	
+						<br>
+						<!-- PREGUNTA 3-->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">3. ¿POR QUE PREFIERE COMPRAR EN FARMACIAS SANA SANA ?</label></div>
+						</div>	
+
+						<!-- CEHACKBOX PREGUNTA 3 -->
+						<div class="row">
+								<ol>			
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="ubicacion">UBICACIÓN O CERCANIA</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="calidad">CALIDAD DE SERVICIO AL CLIENTE</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="precio">PRECIO</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="surtido">SURTIDO</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="recomendacion">RECOMENDACIÓN</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="volante">LO VI EN EL VOLANTE</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="web">LO VI EN LA WEB</label></div>
+								</ol>
+						</div>							
+						<br>
+
+						<!-- PREGUNTA 4-->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">4. ¿COMO NOS CALIFICARIA EN LOS SIGUIENTES ASPECTOS ?</label></div>
+						</div>	
+						<br>
+						<!--RADIO SERVICIO AL CLIENTE-->
+						<div class="row">
+							<div class="col-md-2"> <label>SERVICIO AL CLIENTE</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="servicioCliente" id="servicioClienteMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="servicioCliente" id="servicioClienteMalo">MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="servicioCliente" id="servicioClienteRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="servicioCliente" id="servicioClienteBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="servicioCliente" id="servicioClienteMuyBueno">MUY BUENO</label></div>
+						</div>	
+						<br>
+						<!--RADIO TIEMPO DE ESPERA-->
+						<div class="row">
+							<div class="col-md-2"> <label>TIEMPO DE ESPERA</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="tiempoEspera" id="tiempoEsperaMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="tiempoEspera" id="tiempoEsperaMalo"f>MALO</label></div>
+							<div class="col-sm-2"> <label class="radio-inline"><input type="radio" name="tiempoEspera" id="tiempoEsperaRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="tiempoEspera" id="tiempoEsperaBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="tiempoEspera" id="tiempoEsperaMuyBueno">MUY BUENO</label></div>
+						</div>
+						<br>
+						<!--RADIO IMAGEN GENERAL FARMACIA-->
+						<div class="row">
+							<div class="col-md-2"> <label>IMAGEN GENERAL FARMACIA</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="imagenGeneral" id="imagenGeneralMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="imagenGeneral" id="imagenGeneralMalo">MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="imagenGeneral" id="imagenGeneralRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="imagenGeneral" id="imagenGeneralBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="imagenGeneral" id="imagenGeneralMuyBueno">MUY BUENO</label></div>
+						</div>	
+						<br>
+						<!--RADIO PERSONAL DE VENTA-->
+						<div class="row">
+							<div class="col-md-2"> <label>PERSONAL DE VENTA</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="personalVenta" id="personalVentaMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="personalVenta" id="personalVentaMalo">MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="personalVenta" id="personalVentaRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="personalVenta" id="personalVentaBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="personalVenta" id="personalVentaMuyBueno">MUY BUENO</label></div>
+						</div>	
+						<br>
+						<!--RADIO PRECIO-->
+						<div class="row">
+							<div class="col-md-2"> <label>PRECIO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="precio" id="precioMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="precio" id="precioMalo">MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="precio" id="precioRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="precio" id="precioBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="precio" id="precioMuyBueno">MUY BUENO</label></div>
+						</div>	
+						<br>
+						<!--RADIO SURTIDO-->
+						<div class="row">
+							<div class="col-md-2"> <label>SURTIDO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="surtido" id="surtidoMuyMalo">MUY MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="surtido" id="surtidoMalo">MALO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="surtido" id="surtidoRegular">REGULAR</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="surtido" id="surtidoBueno">BUENO</label></div>
+							<div class="col-md-2"> <label class="radio-inline"><input type="radio" name="surtido" id="surtidoMuyBueno">MUY BUENO</label></div>
+						</div>	
+						<br>
+						<!-- PREGUNTA 5 -->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">4. ¿CUÁL ES LA PROBABILIDAD DE QUE NOS RECOMIENDE?</label></div>
+						</div>	
+						<!-- rADIO BUTTON -->
+						<div class="row">
+							<div class="col-md-8">
+								<ol>
+									<li><div class="radio"><label><input type="radio" name="probabilidadRecomendacion" id="probabilidadRecomendacionMuyProbable">MUY PROBABLE</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="probabilidadRecomendacion" id="probabilidadRecomendacionAlgoProbable">ALGO PROBABLE</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="probabilidadRecomendacion" id="probabilidadRecomendacionPocoProbable">ALGO POCO PROBABLE</label></div></li>
+									<li><div class="radio"><label><input type="radio" name="probabilidadRecomendacion" id="probabilidadRecomendacionMuyPocoProbable">MUY POCO PROBABLE</label></div></li>
+								</ol>
+							</div>
+						</div>	
+						<br>
+						<!-- PREGUNTA 6 -->
+						<div class="row">
+							<div class="col-md-8"><label class="text-inline">4. MARQUE CON UNA "X" EL ASPECTO QUE CONSIDERA DEBERIAMOS MEJORAR</label></div>
+						</div>
+						<!--checkbox aspectos a mejorar-->
+						<div class="row">
+							<div class="col-md-8">
+								<ol>			
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarServicioCliente">SERVICIO AL CLIENTE</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarTiempoEspera">TIEMPO DE ESPERA</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarImagenGeneral">IMAGEN GENERAL FARMACIA</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarPersonalVenta">PERSONAL DE VENTAS</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarPrecio">PRECIO</label></div>
+									<div class="checkbox"><label><input type="checkbox" name="aspectoConsiderar" id="aspectoConsiderarSurtido">SURTIDO</label></div>
+								</ol>
+							</div>
+						</div>	
+						<br>
+						<!-- PREGUNTA 6 -->
+						<div class="row">
+							<div class="col-md-8"><label for="comment">Comentario:</label><textarea class="form-control" rows="5" id="comment"></textarea></div>
+						</div>
+
+						</form> <!-- fin formulario-->
+					</div><!-- fin ventana container-->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+						<button type="button" class="btn btn-primary">ACEPTAR</button>			
+					</div><!-- fin pie de la ventana modal-->
+
+				</div><!-- fin contenido de la modal-->
+			</div><!-- fin tamaño modal-->
+		</div><!-- fin modal fAde-->
+	</body>
+	</html>

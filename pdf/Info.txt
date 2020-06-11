@@ -1,0 +1,5 @@
+REMEMBER.
+
+Install PDO in the SERVER (Versión PHP 5.6, 5.5)
+
+Microsoft® ODBC Driver 11 for SQL Server® - Windows

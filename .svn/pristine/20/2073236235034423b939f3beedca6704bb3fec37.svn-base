@@ -1,0 +1,302 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+<head>
+
+  <title>Farmacia Sana Sana</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <!--sección de CSS-->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/settings.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/slicknav.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="css/colors/green.css" media="screen" />
+  <!-- / Termina sección de css-->
+
+  <!--Inicia sección de JS-->
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="js/modernizrr.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+  <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="js/jquery.appear.js"></script>
+  <script type="text/javascript" src="js/count-to.js"></script>
+  <script type="text/javascript" src="js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+  <script type="text/javascript" src="js/smooth-scroll.js"></script>
+  <script type="text/javascript" src="js/skrollr.js"></script>
+  <script type="text/javascript" src="js/jquery.parallax.js"></script>
+  <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+  <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+  <script type="text/javascript" src="js/style.changer.js"></script>   
+  <!--Termina sección de JS-->
+ 
+  <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+</head>
+
+<body>
+
+  <!--Pestañas de redes sociales-->
+  <div class="cont_pestanias">
+    <a href="https://www.facebook.com/Farmacias-Sana-Sana-Gpo-Santoyo-189978141135355/" target="_blank">
+      <div class="facebookPestania">
+        <img src="images/logo_sociales/facebook_78404.png" border="0"/>
+      </div>
+    </a>
+    <a href="https://twitter.com/santoyoSanasana" target="_blank">
+      <div class="twitterPestania">
+        <img src="images/logo_sociales/twitter_78404.png" border="0"/>
+      </div>
+    </a>
+  </div>
+  <!--Final de pestañas de redes sociales-->
+
+  <!-- Inicio del Body Container -->
+  <div id="container">
+
+    <!-- Inicio del header -->
+    <header class="clearfix">
+      <!-- Inicia  Logo y Navegación  -->
+      <div class="navbar navbar-default navbar-top" role="navigation" data-spy="affix" data-offset-top="50">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Comienza cambio de enlaces para moviles -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </button>
+            <!-- Termina cambio de enlaces para moviles  -->
+            <a class="navbar-brand" href="index.html">
+              <img class="imageLogo" alt="" src="images/lOGO SANASANAREDUC.png"> 
+            </a>
+          </div>
+          <div class="navbar-collapse collapse">
+            
+            <!-- Inicia barra de navegación -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="active" href="index.html">Inicio</a></li>
+              <li><a href="about.html">Acerca de nosotros</a></li>
+              <li><a href="promociones.html">Promociones</a></li>
+              <li><a href="contact.html">Contacto</a></li>
+              <li><a href="sucursales.php">Sucursales</a></li>
+              <li><a href="login.html">Inicia sesión</a></li>
+            </ul>
+            <!-- Termina barra de navegación -->
+          </div>
+        </div>
+
+        <!-- Inicia menu para moviles -->
+        <ul class="wpb-mobile-menu">
+          <li><a class="active" href="index.html">Inicio</a></li>
+          <li><a href="about.html">Acerca de nosotros</a></li>
+          <li><a href="promociones.html">Promociones</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="sucursales.php">Sucursales</a></li>
+          <li><a href="login.html">Inicia sesion</a></li>
+        </ul>
+        <!-- Termina menu para moviles -->
+      </div>
+      <!-- Final de logo y navegación -->
+
+    </header>
+    <!-- Termina header -->
+
+      <section id="partner">
+      <div id="first-slider">
+          <div id="carousel-example-generic" class="carousel slide carousel-fade">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                  <!-- Item 1 -->
+                  <div class="item active slide1">
+                      <div class="row"><div class="container">
+                          <div class="col-md-9" align="center">
+                              <img style="max-width: 400px;" class="img-responsive" data-animation="animated zoomInLeft" src="images/logRana.png">      
+                           </div>
+                      </div></div>
+                   </div> 
+                  <!-- Item 2 -->
+                  <div class="item slide2">
+                      <div class="row"><div class="container">
+                          <div class="col-md-9" align="center">
+                              <img style="max-width: 400px;" class="img-responsive" data-animation="animated zoomInLeft" src="images/logRana.png">      
+                           </div>
+                      </div></div>
+                  </div>
+                  <!-- Item 3 -->
+                  <div class="item slide3">
+                      <div class="row"><div class="container">
+                          <div class="col-md-9" align="center">
+                              <img style="max-width: 400px;" class="img-responsive" data-animation="animated zoomInLeft" src="images/logRana.png">      
+                           </div>   
+                      </div></div>
+                  </div>
+                  <!-- Item 4 -->
+                  <div class="item slide4">
+                      <div class="row"><div class="container">
+                          <div class="col-md-9" align="center">
+                              <img style="max-width: 400px;" class="img-responsive" data-animation="animated zoomInLeft" src="images/logRana.png">      
+                           </div>
+                      </div></div>
+                  </div>
+                  <!-- End Item 4 -->
+          
+              </div>
+              <!-- End Wrapper for slides-->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i><span class="sr-only">Anterior</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i><span class="sr-only">Siguiente</span>
+              </a>
+          </div>
+      </div>
+    </section><!--/#partner-->
+
+    <!--Inicia Sección de encuesta-->
+    <div class=" section pricing-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="big-title text-center">
+              <h1 style="color: #00923f; text-transform: uppercase; font-weight:400; font-size: 32px">Encuesta</h1>
+            </div>
+
+            <div class="big-title text-center">
+              <h1>Tu opinion es muy importante para nosotros, ayudanos a mejorar</h1>
+              <h1>contestando esta pequeña encuesta, te tomara menos de 5 minutos.</h1>
+            </div>
+            <div class="col-md-12" style="text-align: center;">
+              <a href="encuesta2.php" class="btn-system btn-large">Contestar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Termina Sección de encuesta-->
+
+
+    <!--Inicia Sección de politicas-->
+    <div id="parallax" data-stellar-background-ratio="0.5" class="parallax" style="background-image:url(images/parallax/greenCube3.jpg); ">
+      <div class="parallax-text-container-1">
+        <div class="parallax-text-item">
+          <div class="container">
+            <div class="row">
+              <div class="section-video-content text-center">
+                <h1 class="wite-text uppercase" style="font-weight:100;">Consulta nuestras politicas</h1>
+                <br>
+
+                <a href="pdf/Aviso de Privacidad.pdf" target="_blank" class="btn-system btn-large"><i class="fa fa-file-pdf-o"></i> Aviso de privacidad</a>
+                <a href="pdf/politicaCambios.pdf" target="_blank" class="btn-system btn-large"><i class="fa fa-file-pdf-o"></i> Politicas de Cambio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Termina Sección de politicas-->
+
+
+    <!-- Inicia footer -->
+    <footer>
+      <div class="container">
+        <!--Inicia contenido de footer-->
+        <div class="row footer-widgets">
+          <div class="col-md-3">
+
+            <!--Inicia contenido de redes sociales-->
+            <div class="footer-widget social-widget">
+              <h4>SIGUENOS EN: <span class="head-line"></span></h4>
+              <ul class="social-icons">
+                <li>
+                  <a class="facebook" href="https://www.facebook.com/Farmacias-Sana-Sana-Gpo-Santoyo-189978141135355/"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a class="twitter" href="https://twitter.com/santoyosanasana"><i class="fa fa-twitter"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!--Termina contenido de redes sociales-->
+          </div>
+
+          <div class="col-md-3"></div>
+          <div class="col-md-3"></div>
+
+
+          <!--Inicia inofrmación adicional--> 
+          <div class="col-md-3">
+            <div class="footer-widget contact-widget">
+              <ul>
+                <li><span>¿Tienes alguna duda?</span></li>
+                <li><span>Teléfono: 40-00-56-99, Ext. 7001, 7002, 7003.</span></li>
+              </ul>
+            </div>
+          </div>
+          <!-- / Termina inofrmación adicional -->
+        </div>
+        <!-- Termina contenido de footer -->
+
+        <!-- Inicia sección de copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 2017 by <a href="http://www.farmaciassanasana.com.mx">Farmacias Sana Sana.</a>  All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Termina sección de copyright -->
+      </div>
+    </footer>
+    <!--/ Termina footer -->
+
+
+  </div>
+  <!-- End Full Body Container -->
+
+  <!-- Go To Top Link -->
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!--Inicio de loader-->
+  <!--<div id="loader">
+    <div class="spinner">
+      <div class="f1078404_sup">
+        <div class="f978404_petit">
+          <div class="f1078404_fond">
+            <div class="f1078404">              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <!--Final de loader-->
+
+
+
+  <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>

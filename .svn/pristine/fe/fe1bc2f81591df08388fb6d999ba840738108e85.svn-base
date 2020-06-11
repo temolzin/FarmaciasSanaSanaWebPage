@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>  
+	<script src="js/wow.min.js"></script>
+	<script src="js/functions.js"></script>
+	<script type="text/javascript">
+     function limpiarCajas() {
+         $(":text").each(function() {
+            $($(this)).val('');
+          });
+         $('#email').each(function() {
+            $($(this)).val('');
+         });
+         $('#mensaje').each(function() {
+            $($(this)).val('');
+         });
+      }
+       function soloLetras(e) {
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toLowerCase();
+          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+          especiales = [8, 37, 39, 46];
+          tecla_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              tecla_especial = true;
+              break;
+            }
+          }
+          if (letras.indexOf(tecla) == -1 && !tecla_especial)
+             return false;
+          }
+          function soloNumeros(e)
+          {
+            var keynum = window.event ? window.event.keyCode : e.which;
+            if ((keynum == 8) || (keynum == 46))
+              return true;
+            return /\d/.test(String.fromCharCode(keynum));
+          }
+    </script>
+
+    <title>Farmacias Sana Sana</title>
+
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link href="css/prettyPhoto.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" />	
+	    <!-- SWEETALERT -->
+	<link href="css/sweetalert.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<header>		
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navigation">
+				<div class="container">					
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="navbar-brand">
+							<a href="index.html"><h1><span>Farmacias Sana Sana</span></h1></a>
+						</div>
+					</div>
+					
+					<div class="navbar-collapse collapse">							
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation"><a href="index.html">Inicio</a></li>
+								<li role="presentation"><a href="about.html">Acerca de Nosotros</a></li>
+								<li role="presentation"><a href="promociones.php">Promociones</a></li>
+								<li role="presentation"><a href="contact.html" class="active">Contacto</a></li>
+								<li role="presentation"><a href="login.html">Inicia Sesión</a></li>						
+							</ul>
+						</div>
+					</div>						
+				</div>
+			</div>	
+		</nav>		
+	</header>
+	
+	<br><br><br><br><br><br>
+	<section>
+        <div class="container">
+            <div class="center">        
+                <h2>Comunicate con nosotros</h2>
+                <p>Mandanos un mensaje</p>
+            </div> 
+            <div class="row contact-wrap"> 
+                <form id="formulario" class="contact-form" name="formulario" method="post">
+                    <div class="col-sm-5 col-sm-offset-1">
+                        <div class="form-group">
+                            <label>* Nombre: </label>
+                            <input type="text" name="nombre" id="nombre" onkeypress="return soloLetras(event);" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>* Email:</label>
+                            <input type="email" name="email" id="email" class="form-control">
+                        </div>
+                    	<div class="form-group">
+                            <label>* Teléfono: </label>
+                            <input type="text" maxlength="10" id="telefono" name="telefono" onkeypress="return soloNumeros(event);" class="form-control">
+                        </div>                     
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label>* Asunto: </label>
+                            <input type="text" name="asunto" id="asunto" name="asunto" class="form-control">
+                    	</div>
+                    	<div class="form-group">
+                            <label>* Mensaje: </label>
+                            <textarea name="mensaje" id="mensaje" class="form-control" rows="8"></textarea>
+                        </div>         
+                         <div class="form-group">
+                        	<button name="enviar" id="enviar" class="btn btn-default btn-lg">Enviar mensaje</button>
+                    	</div>              
+                    </div>
+                </form> 
+	<script>
+	    $(document).ready(function() {
+	    	$("#formulario").validate({
+		        rules: {
+		            nombre: {
+		              required: true
+		            },
+		            telefono: {
+		              required: true
+	            },
+            	email: {
+            		required: true,
+             		email: true
+            	},
+	            asunto: {
+	              required: true,
+	            },
+	            mensaje: {
+	              required: true,
+	            }
+	        },
+	        messages: {
+	            nombre: {
+	              required: "<p align='center' class='text-danger'> * Debes ingresar tu nombre para el mensaje</p>",
+	            }, 
+	            telefono: {
+	              required: "<p align='center' class='text-danger'> * Debes un ingresar un teléfono</p>"
+	            },
+	            email: {
+	              required: "<p align='center' class='text-danger'> * Debes ingresar una cuenta de correo.</p>",
+	              email: "<p align='center' class='text-danger'> * Ingresa un Email correcto </p>"
+	            },
+	            asunto: {
+	              required: "<p align='center' class='text-danger'> * Debes ingresar un asunto</p>"
+	            },
+	            mensaje: {
+	              required: "<p align='center' class='text-danger'> * Ingresa un mensaje</p>"
+	            }
+        	},
+	        submitHandler: function(){
+	            $.ajax({
+	                  type: "POST",
+	                  url: 'funciones/procesos/enviarEmail.php',
+	                  data: $('#formulario').serialize(),
+	                  success: function(data) {
+	                    if(data == 'error') {
+	                        swal({title: "¡Error!",text: "Ha ocurrido un error al enviar el formulario, por favor intentalo más tarde.", type: "error",closeOnConfirm: "Aceptar"});
+	                    } else {
+	                       swal({title: "¡Éxito!" ,text: " Tu mensaje se ha enviado correctamente, Gracias por contactar a Farmacias Sana Sana.", type: "success",closeOnConfirm: "Aceptar"});
+	                      limpiarCajas();
+	                    }
+	                  }
+	             });
+	        }
+	    });
+	  });
+    </script>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
+	<br><br><br><br><br><br>
+	<div class="map">
+	    <div class="center">        
+            <h2>Nuestras Tiendas</h2>
+            <p>Busca la sucursal más cercana.</p>
+        </div> 
+        <div class="col-md-4"></div>
+        <div class="col-md-4" align="center">
+            <font size="5" color="#000">Sucursal</font>
+            <select id="comboSucursal" name="comboSucursal" class="form-control">
+            	<option value="cedaEcatepec">Central de Abastos Ecatepec</option>
+            	<option value="tecamacViaReal">Av. Vía Real, Tecámac.</option>
+            	<option value="tecamacCentro">Tecámac Centro</option>
+            	<option value="viaMorelos">Vía Morelos</option>
+            	<option value="cdCuau">Ciudad Cuauhtémoc</option>
+            	<option value="ojodeAgua">Ojo de Agua</option>
+            	<option value="sanPablo">San Pablo Tultitlán</option>
+            	<option value="tultitlan">Central de Abastos Tultitlán</option>
+            	<option value="tecamacPrincipal">Tecámac La Principal</option>
+            	<option value="rioja">Zacatenco</option>
+            	<option value="izcalli">Izcalli</option>
+            	<option value="df">Centro Ciudad de México</option>
+            	<option value="tezontepec">Tezontepec</option>
+            	<option value="ciudadAzteca">Ciudad Azteca</option>
+            	<option value="casas">Casas Alemán</option>
+            	<option value="e21">Iztapalapa</option>
+            	<option value="laredo">Nuevo Laredo</option>
+            	<option value="neza">Nezahualcóyotl</option>
+            </select>
+        </div>
+        <div id="mapa" name="mapa">
+        	<br><br><br><br><div id="direccionSucursal" align="center" name="direccionSucursal">Sucursal Ceda Ecatepec Patente <br>
+direccion: Av.Central Nave E517 Colonia Santa Cruz Venta de Carpio, Ecatepec de Morelos
+Estado de Mexico C.P. 55065 <br>Tel. 40005699<br>
+			Sucursal: Ceda Ecatepec 512 Genericos<br>
+			Dirección:Central de Abastos Nave E Local 512 colonia Santa Cruz Venta de Carpio, Ecatepec de Morelos
+			Estado de Mexico C.P.55065 <br>Tel. 40005699</div>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.2463497670497!2d-99.00602468572563!3d19.616763039850593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM3JzAwLjMiTiA5OcKwMDAnMTMuOCJX!5e0!3m2!1ses-419!2sco!4v1474127129219" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function() {
+	    $("#comboSucursal").change(function() {
+	    	$('#mapa').html('<br><br><br><br><br><div align="center"><img src="images/principal/cargando.gif"/><br><p class="text-info lead">Cargando...</p><br></div>');
+	        $.ajax({
+	            type: "POST",
+	            url: 'funciones/procesos/consultarMapa.php',
+	            data: $('#comboSucursal').serialize(),
+	            success: function(data) {
+		            if(data == 'error') {
+		                $('#mapa').html("<h1 align='center' class='text-danger'>Ha ocurrido un error interno, por favor intentelo más tarde.</h1>");
+		            } else {
+		                $('#mapa').html(data);
+		            }
+	        	}
+	        });
+	    });
+});
+    </script>
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="social-icon">
+					<div class="col-md-4">
+						<ul class="social-network">
+							<li><a target="_blank" href="https://www.facebook.com/Farmacias-Sana-Sana-Gpo-Santoyo-189978141135355/" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/SanaFarmacias" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						</ul>	
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-md-offset-4">
+					<div class="copyright">
+						Copyright &copy; 2017 by <a target="_blank" href="http://www.farmaciassanasana.com.mx/" title="Farmacias Sana Sana">Farmacias Sana Sana</a>. All Rights Reserved.
+				</div>						
+			</div>
+			
+			<div class="pull-right">
+				<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+			</div>		
+		</div>
+	</footer>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+<?php 
+function menu($itemActivo) {
+  //Se valida que la sesión este activa para no poder acceder a la página
+  if (isset($_SESSION['nombreUsuario'])==false){
+    header('Location: ../../index.html');
+  } 
+//Validación para mostrar la imágen depende el género del usuario
+  if($_SESSION['genero'] == 'Hombre') {
+    echo '<li class="text-center"><img src="../../images/panelAdmin/userHombre.png" class="user-image img-responsive"/></li>';
+  } else {
+    echo '<li class="text-center"><img src="../../images/panelAdmin/userMujer.png" class="user-image img-responsive"/></li>';
+  }
+  //Verifica STATUS del usuario
+  if($_SESSION['status'] == 1) {
+    if($_SESSION['tipoUsuario'] == 'Administrador') {
+    //Todos los permisos para el administrador
+    echo '<li>
+            <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+          </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaArticulos' or $itemActivo == 'consultaPrecios' or $itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-th-large fa-3x"></i> Artículos<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaArticulosView.php" '; if($itemActivo == 'consultaArticulos') echo 'class="active-menu"'; echo '>Consulta de artículos</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaPreciosView.php" '; if($itemActivo == 'consultaPrecios') echo 'class="active-menu"'; echo '>Consulta de precios</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '>Consulta de existencias</a>
+                              </li>
+                          </ul>
+                        </li>  
+                        <li>
+                          <a  href="#"'; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '><i class="fa fa-folder fa-3x"></i> Almacenes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaKardexView.php" '; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '>Consulta de Kardex</a>
+                              </li>
+                            </ul>
+                        </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaVentas' or $itemActivo == 'consultaCortes' or $itemActivo == 'consultaVentasFacturas' or $itemActivo == 'consultaVentasSector' or $itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '><i class="fa fa-money fa-3x"></i> Ventas<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaVentasView.php" '; if($itemActivo == 'consultaVentas') echo 'class="active-menu"'; echo '>Consulta de Ventas</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaTicketsView.php" '; if($itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '>Consulta de Tickets</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaCortesView.php" '; if($itemActivo == 'consultaCortes') echo 'class="active-menu"'; echo '>Consulta de Cortes</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaVentasFacturasView.php" '; if($itemActivo == 'consultaVentasFacturas') echo 'class="active-menu"'; echo '>Consulta de Ventas Facturadas</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaVentasSectorView.php" '; if($itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '>Consulta de Ventas por Sector</a>
+                              </li>
+                          </ul>
+                        </li> 
+                        <li>
+                          <a  href="#" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '><i class="fa fa-shopping-cart fa-3x"></i> Pedidos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaPedidosView.php" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '>Consulta de Pedidos</a>
+                              </li>
+                            </ul>
+                        </li>  
+
+                        <!-- Empieza Vista Generación de Reportes -->  
+                      <li>
+                        <a href="#" '; if($itemActivo == 'reporteVentasExistenciasSugerido' or $itemActivo == 'reporteVentasExistencias' or $itemActivo == 'reporteCloseUp' or $itemActivo == 'reporteAnefar') echo 'class="active-menu"'; echo '><i class="fa fa-file fa-3x"></i> Generación de Reportes <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                          <li>
+                              <a '; if($itemActivo == 'reporteVentasExistenciasSugerido') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasViewSugerido.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias Sugerido</a>
+                          </li> 
+		                      <li>
+		                          <a '; if($itemActivo == 'reporteVentasExistencias') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasView.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias</a>
+		                      </li>            
+		                      <li>
+		                          <a '; if($itemActivo == 'reporteCloseUp') echo 'class="active-menu"'; echo 'href="../vistas/reporteCloseUpView.php"><i class="fa fa-user-md fa-3x"></i> Reporte Close Up</a>
+		                      </li>';
+		                      echo '
+		                      <li>
+		                          <a '; if($itemActivo == 'reporteAnefar') echo 'class="active-menu"'; echo ' href="../vistas/reporteAnefarView.php"><i class="fa fa-file-text fa-3x"></i> Reporte Anefar TXT</a>
+		                      </li>';
+		              echo '        
+		                 </ul>  
+                       </li>
+                      <!-- Termina vista de Reportes-->
+
+                      <!-- Empieza la vista de Facturas WEB -->
+                      <li>
+                          <a href="#" '; if($itemActivo == 'facturasCorreo' or $itemActivo == 'facturasRealizadas' or $itemActivo == 'buscaFacturas') echo 'class="active-menu"'; echo '><i class="fa fa-desktop fa-3x"></i> Facturas WEB<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/buscaFacturasView.php" '; if($itemActivo == 'buscaFacturas') echo 'class="active-menu"'; echo '>Busca Facturas</span></a>
+                              </li>
+                              <li>
+                                  <a href="../procesos/consultaFacturaCorreo.php" '; if($itemActivo == 'facturasCorreo') echo 'class="active-menu"'; echo '>Facturas Solicitadas</span></a>
+                              </li>
+                              <li>
+                                  <a href="../procesos/consultaFacturaRealizada.php" '; if($itemActivo == 'facturasRealizadas') echo 'class="active-menu"'; echo '>Facturas Realizadas</span></a>
+                              </li>
+                          </ul>
+                        </li> 
+                        <!-- EMPIEZA VISTA DE PROVEEDORES -->
+                      <li>
+                          <a href="#" '; if($itemActivo == 'consultaSKUProveedor' or $itemActivo == 'skuProveedor') echo 'class="active-menu"'; echo '><i class="fa fa-plus-circle fa-3x"></i> Proveedores <span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                             <li>
+                                  <a href="../vistas/registrarSKUProveedorView.php" '; if($itemActivo == 'skuProveedor') echo 'class="active-menu"'; echo '> Registrar SKUProveedor </span></a>
+                              </li>
+                             <li>
+                                  <a href="../vistas/consultaSKUProveedorView.php" '; if($itemActivo == 'consultaSKUProveedor') echo 'class="active-menu"'; echo '> Consulta SKUProveedor </span></a>
+                              </li>
+                          </ul>
+                      </li> 
+                      <!-- TERMINA VISTA DE PROVEEDORES -->
+                      <li>
+                          <a '; if($itemActivo =='creditoCliente') echo 'class="active-menu"'; echo ' href="../vistas/seguimientoCreditoClienteAdminView.php"><i class="fa fa-credit-card fa-3x"></i> Crédito de clientes</a>
+                      </li>
+
+                      <li>
+                        <a href="../vistas/registrarUsuarioView.php" '; if($itemActivo == 'registrar') echo 'class="active-menu"'; echo '><i class="fa fa-plus-circle fa-3x"></i> Registrar Usuarios</a>
+                      </li>
+
+                      <li>
+                          <a '; if($itemActivo == 'editarUsuario') echo 'class="active-menu"'; echo ' href="../procesos/consultarUsuarios.php"><i class="fa fa-edit fa-3x"></i> Editar Usuarios</a>
+                      </li>   
+                      <li>
+                          <a '; if($itemActivo == 'ActualizaPerfil') echo 'class="active-menu"'; echo ' href="../procesos/actualizarPerfil.php"><i class="fa fa-user fa-3x"></i> Editar perfil</a>
+                      </li>';
+                      } 
+                      //Tipo Usuario SUCURSAL
+                      else if($_SESSION['tipoUsuario'] == 'Sucursal') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaArticulos' or $itemActivo == 'consultaPrecios' or $itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-th-large fa-3x"></i> Artículos<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaArticulosView.php" '; if($itemActivo == 'consultaArticulos') echo 'class="active-menu"'; echo '>Consulta de artículos</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaPreciosView.php" '; if($itemActivo == 'consultaPrecios') echo 'class="active-menu"'; echo '>Consulta de precios</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '>Consulta de existencias</a>
+                              </li>
+                          </ul>
+                        </li>  
+                        <li>
+                          <a  href="#"'; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '><i class="fa fa-folder fa-3x"></i> Almacenes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaKardexView.php" '; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '>Consulta de Kardex</a>
+                              </li>
+                            </ul>
+                        </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaVentas' or $itemActivo == 'consultaCortes' or $itemActivo == 'consultaVentasFacturas' or $itemActivo == 'consultaVentasSector' or $itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '><i class="fa fa-money fa-3x"></i> Ventas<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaVentasView.php" '; if($itemActivo == 'consultaVentas') echo 'class="active-menu"'; echo '>Consulta de Ventas</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaTicketsView.php" '; if($itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '>Consulta de Tickets</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaCortesView.php" '; if($itemActivo == 'consultaCortes') echo 'class="active-menu"'; echo '>Consulta de Cortes</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaVentasFacturasView.php" '; if($itemActivo == 'consultaVentasFacturas') echo 'class="active-menu"'; echo '>Consulta de Ventas Facturadas</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaVentasSectorView.php" '; if($itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '>Consulta de Ventas por Sector</a>
+                              </li>
+                          </ul>
+                        </li> 
+                        <li>
+                          <a  href="#" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '><i class="fa fa-shopping-cart fa-3x"></i> Pedidos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaPedidosView.php" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '>Consulta de Pedidos</a>
+                              </li>
+                            </ul>
+                        </li>    ';
+                        } 
+                       //Tipo de usuario COMPRAS
+                        else if($_SESSION['tipoUsuario'] == 'Compras') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaArticulos' or $itemActivo == 'consultaPrecios' or $itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-th-large fa-3x"></i> Artículos<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaArticulosView.php" '; if($itemActivo == 'consultaArticulos') echo 'class="active-menu"'; echo '>Consulta de artículos</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaPreciosView.php" '; if($itemActivo == 'consultaPrecios') echo 'class="active-menu"'; echo '>Consulta de precios</a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '>Consulta de existencias</a>
+                              </li>
+                          </ul>
+                        </li>  
+                        <li>
+                          <a  href="#"'; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '><i class="fa fa-folder fa-3x"></i> Almacenes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaKardexView.php" '; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '>Consulta de Kardex</a>
+                              </li>
+                            </ul>
+                        </li> 
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaVentas' or $itemActivo == 'consultaCortes' or $itemActivo == 'consultaVentasFacturas' or $itemActivo == 'consultaVentasSector' or $itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '><i class="fa fa-money fa-3x"></i> Ventas<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="../vistas/consultaVentasView.php" '; if($itemActivo == 'consultaVentas') echo 'class="active-menu"'; echo '>Consulta de Ventas</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaTicketsView.php" '; if($itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '>Consulta de Tickets</span></a>
+                              </li>
+                              <li>
+                                  <a href="../vistas/consultaVentasSectorView.php" '; if($itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '>Consulta de Ventas por Sector</a>
+                              </li>
+                          </ul>
+                        </li> 
+                        <li>
+                          <a  href="#" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '><i class="fa fa-shopping-cart fa-3x"></i> Pedidos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                              <li>
+                                <a href="../vistas/consultaPedidosView.php" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '>Consulta de Pedidos</a>
+                        </li>
+                        </ul>
+                        </li>
+                        <!-- Empieza Vista Generación de Reportes -->  
+                      <li>
+                        <a href="#" '; if($itemActivo == 'reporteVentasExistenciasSugerido' or $itemActivo == 'reporteVentasExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-file fa-3x"></i> Generación de Reportes <span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                          <li>
+                              <a '; if($itemActivo == 'reporteVentasExistenciasSugerido') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasViewSugerido.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias Sugerido</a>
+                          </li> 
+                          <li>
+                              <a '; if($itemActivo == 'reporteVentasExistencias') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasView.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias</a>
+                          </li>';
+                        } 
+                        //Tipo de Usuario CONTABILIDAD
+                        else if($_SESSION['tipoUsuario'] == 'Contabilidad') {
+                          echo '
+                                <li>
+                                    <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                                  </li>
+                                    <li>
+                                      <a href="#" '; if($itemActivo == 'consultaVentas' or $itemActivo == 'consultaCortes' or $itemActivo == 'consultaVentasFacturas' or $itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '><i class="fa fa-money fa-3x"></i> Ventas<span class="fa arrow"></span></a>
+                                      <ul class="nav nav-second-level">
+                                          <li>
+                                              <a href="../vistas/consultaVentasView.php" '; if($itemActivo == 'consultaVentas') echo 'class="active-menu"'; echo '>Consulta de Ventas</span></a>
+                                          </li>
+                                          <li>
+                                              <a href="../vistas/consultaTicketsView.php" '; if($itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '>Consulta de Tickets</span></a>
+                                          </li>
+                                          <li>
+                                              <a href="../vistas/consultaCortesView.php" '; if($itemActivo == 'consultaCortes') echo 'class="active-menu"'; echo '>Consulta de Cortes</a>
+                                          </li>
+                                          <li>
+                                              <a href="../vistas/consultaVentasFacturasView.php" '; if($itemActivo == 'consultaVentasFacturas') echo 'class="active-menu"'; echo '>Consulta de Ventas Facturadas</a>
+                                          </li>
+                                          <li>
+                                              <a href="../vistas/consultaVentasSectorView.php" '; if($itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '>Consulta de Ventas por Sector</a>
+                                          </li>
+                                      </ul>
+                                    </li> 
+                                    <!-- Empieza la vista de Facturas WEB -->
+                              <li>
+                                  <a href="#" '; if($itemActivo == 'facturasCorreo' or $itemActivo == 'facturasRealizadas'or $itemActivo == 'buscaFacturas') echo 'class="active-menu"'; echo '><i class="fa fa-desktop fa-3x"></i> Facturas WEB<span class="fa arrow"></span></a>
+                                  <ul class="nav nav-second-level">
+                                      <li>
+                                          <a href="../vistas/buscaFacturasView.php" '; if($itemActivo == 'buscaFacturas') echo 'class="active-menu"'; echo '>Busca Facturas</span></a>
+                                      </li>
+                                      <li>
+                                          <a href="../procesos/consultaFacturaCorreo.php" '; if($itemActivo == 'facturasCorreo') echo 'class="active-menu"'; echo '>Facturas Solicitadas</span></a>
+                                      </li>
+                                      <li>
+                                          <a href="../procesos/consultaFacturaRealizada.php" '; if($itemActivo == 'facturasRealizadas') echo 'class="active-menu"'; echo '>Facturas Realizadas</span></a>
+                                      </li>
+                                  </ul>
+                                </li> ';
+                        }
+                        //Tipo de Usuario Proveedor
+                        else if($_SESSION['tipoUsuario'] == 'Proveedor') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                          <a '; if($itemActivo == 'reporteVentasProveedor') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasProveedorView.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias</a>
+                        </li>';
+                        } 
+                       //Tipo de Usuario CreditoCliente
+                        else if($_SESSION['tipoUsuario'] == 'CreditoCliente') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                          <a '; if($itemActivo == 'seguimientoCreditoCliente') echo 'class="active-menu"'; echo 'href="../vistas/seguimientoCreditoClienteView.php"><i class="fa fa-file-text fa-3x"></i> Seguimiento de Crédito</a>
+                        </li>
+                        <li>
+                          <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '> <i class="fa fa-search fa-3x"></i> Busca Productos</a>
+                        </li>';
+                        } 
+                        //Tipo de Usuario CloseUP
+                        else if($_SESSION['tipoUsuario'] == 'CloseUp') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                            <a '; if($itemActivo == 'reporteCloseUp') echo 'class="active-menu"'; echo 'href="../vistas/reporteCloseUpView.php"><i class="fa fa-user-md fa-3x"></i> Reporte Close Up</a>
+                        </li>   ';
+                        } 
+                        //Tipo de Usuario Cliente
+                        else if($_SESSION['tipoUsuario'] == 'Cliente') {
+                        echo '<li>
+                          <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                        </li>
+                        <li>
+                          <a href="#" '; if($itemActivo == 'consultaArticulos' or $itemActivo == 'consultaPrecios' or $itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-th-large fa-3x"></i> Artículos<span class="fa arrow"></span></a>
+                          <ul class="nav nav-second-level">
+                          <li>
+                            <a href="../vistas/consultaArticulosView.php" '; if($itemActivo == 'consultaArticulos') echo 'class="active-menu"'; echo '>Consulta de artículos</a>
+                          </li>
+                          <li>
+                            <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '>Consulta de existencias</a>
+                          </li>
+                          </ul></li>';
+                        } 
+                        //Tipo de Usuario Asistente de Dirección
+                        else if($_SESSION['tipoUsuario'] == 'AsistenteDireccion') {
+                            echo '<li>
+                                    <a '; if($itemActivo == 'inicio') echo 'class="active-menu"'; echo 'href="../procesos/panelAdmin.php"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                                  </li>
+                            <li>
+                              <a href="#" '; if($itemActivo == 'consultaArticulos' or $itemActivo == 'consultaPrecios' or $itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '><i class="fa fa-th-large fa-3x"></i> Artículos<span class="fa arrow"></span></a>
+                              <ul class="nav nav-second-level">
+                                  <li>
+                                      <a href="../vistas/consultaArticulosView.php" '; if($itemActivo == 'consultaArticulos') echo 'class="active-menu"'; echo '>Consulta de artículos</a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaPreciosView.php" '; if($itemActivo == 'consultaPrecios') echo 'class="active-menu"'; echo '>Consulta de precios</a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaExistenciaView.php" '; if($itemActivo == 'consultaExistencias') echo 'class="active-menu"'; echo '>Consulta de existencias</a>
+                                  </li>
+                              </ul>
+                            </li>  
+                            <li>
+                              <a  href="#"'; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '><i class="fa fa-folder fa-3x"></i> Almacenes<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                  <li>
+                                    <a href="../vistas/consultaKardexView.php" '; if($itemActivo == 'consultaKardex') echo 'class="active-menu"'; echo '>Consulta de Kardex</a>
+                                  </li>
+                                </ul>
+                            </li>
+                            <li>
+                              <a href="#" '; if($itemActivo == 'consultaVentas' or $itemActivo == 'consultaCortes' or $itemActivo == 'consultaVentasFacturas' or $itemActivo == 'consultaVentasSector' or $itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '><i class="fa fa-money fa-3x"></i> Ventas<span class="fa arrow"></span></a>
+                              <ul class="nav nav-second-level">
+                                  <li>
+                                      <a href="../vistas/consultaVentasView.php" '; if($itemActivo == 'consultaVentas') echo 'class="active-menu"'; echo '>Consulta de Ventas</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaTicketsView.php" '; if($itemActivo == 'consultaTickets') echo 'class="active-menu"'; echo '>Consulta de Tickets</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaCortesView.php" '; if($itemActivo == 'consultaCortes') echo 'class="active-menu"'; echo '>Consulta de Cortes</a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaVentasFacturasView.php" '; if($itemActivo == 'consultaVentasFacturas') echo 'class="active-menu"'; echo '>Consulta de Ventas Facturadas</a>
+                                  </li>
+                                  <li>
+                                      <a href="../vistas/consultaVentasSectorView.php" '; if($itemActivo == 'consultaVentasSector') echo 'class="active-menu"'; echo '>Consulta de Ventas por Sector</a>
+                                  </li>
+                              </ul>
+                            </li> 
+                            <li>
+                              <a  href="#" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '><i class="fa fa-shopping-cart fa-3x"></i> Pedidos<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                  <li>
+                                    <a href="../vistas/consultaPedidosView.php" '; if($itemActivo == 'consultaPedidos') echo 'class="active-menu"'; echo '>Consulta de Pedidos</a>
+                                  </li>
+                                </ul>
+                            </li>  
+
+                            <!-- Empieza Vista Generación de Reportes -->  
+                          <li>
+                            <a href="#" '; if($itemActivo == 'reporteVentasExistencias' or $itemActivo == 'reporteCloseUp' or $itemActivo == 'reporteAnefar') echo 'class="active-menu"'; echo '><i class="fa fa-file fa-3x"></i> Generación de Reportes <span class="fa arrow"></span></a>
+                             <ul class="nav nav-second-level">
+                              <li>
+                                  <a '; if($itemActivo == 'reporteVentasExistencias') echo 'class="active-menu"'; echo 'href="../vistas/reporteVentasExistenciasView.php"><i class="fa fa-file-text fa-3x"></i> Reporte Ventas Existencias</a>
+                              </li>             
+                             </ul>  
+                               </li>
+                          <!-- Termina vista de Reportes-->
+                              <li>
+                                  <a '; if($itemActivo =='creditoCliente') echo 'class="active-menu"'; echo ' href="../vistas/seguimientoCreditoClienteAdminView.php"><i class="fa fa-credit-card fa-3x"></i> Crédito de clientes</a>
+                              </li>';
+                        } 
+                        //Fin de los tipos de usuario
+                      } else {
+                         echo '<li>
+                          <a  class="active-menu" href="#"><i class="fa fa-home fa-3x"></i> Inicio</a>
+                         </li>';
+                      }
+
+}
+
+function menuBienvenida() {
+   if($_SESSION['genero'] == 'Hombre') {
+        echo 'Bienvenido: '. $_SESSION['nombreCompleto'];
+     } else {
+        echo 'Bienvenida: '. $_SESSION['nombreCompleto'];
+     }                  
+     if($_SESSION['status'] == 0) {
+        echo '<br> <strong> Tu cuenta esta desactivada </strong>';
+        echo '<br> <strong> Contacta al Administrador </strong>';
+     } 
+}
+
+?>

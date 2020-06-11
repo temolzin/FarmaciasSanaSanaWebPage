@@ -1,0 +1,79 @@
+<?php
+session_start();
+
+//Creación del objeto de conexión
+require '../conexion.php';
+$conex = Conexion::getInstance();
+$tipo = $_REQUEST['tipo'];
+if($tipo == 'excel') $extension = '.xls';
+if($tipo == 'word') $extension = '.doc';
+
+//Consulta a la base de datos para saber el nombre de la sucursal
+$nombreDB = $_SESSION['nombreDB'];
+$sql = "SELECT nombreSucursal from sucursales where nombreDB = '".$nombreDB."'";
+$nombreSucursal = "nombreSucursal";
+foreach ($conex->consultar($sql) as $row) {
+	$nombreSucursal = $row['nombreSucursal'];
+}
+//Termina consulta
+$fechaInicio = $_SESSION['fechaInicioPedidos'];
+$fechaFin = $_SESSION['fechaFinPedidos'];
+
+$codigoHtml = '
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Existencias</title>
+</head>
+<body>	
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="4" bgcolor="skyblue"><CENTER><strong>REPORTE PEDIDOS SUCURSAL '. $nombreSucursal.' </strong></CENTER></td>
+  </tr>
+  <tr>
+  	<td colspan="4" bgcolor="skyblue"><CENTER><strong> Fechas: '.$fechaInicio.' al '.$fechaFin.'</strong></td></CENTER>
+  </tr>
+  <thead>
+  <tr>
+    <th bgcolor="#0FEC76" align="center">No. Pedido</th>
+    <th bgcolor="#0FEC76" align="center">Total</th>
+    <th bgcolor="#0FEC76" align="center">Proveedor</th>
+    <th bgcolor="#0FEC76" align="center">Fecha</th>
+   </tr>
+   </thead>';
+
+    	 $sql="SELECT ped_Clave, ped_ArtImpSol, prov_Clave, ped_FecSol FROM tPedido WHERE ped_FecSol BETWEEN '".$fechaInicio."' and '".$fechaFin."' ";
+
+  $passwordSucursal = "S@na*s1";
+  $ipSucursal = '192.168.100.21';
+    
+    //Conexión a Sucursal Local
+      try{
+      	$conex2 = $conex->conectarByIPandPasswordandDBName($ipSucursal, $passwordSucursal, $nombreDB);
+          foreach ($conex->consultarByConex($conex2, $sql) as $row) {
+            $codigoHtml .= '<tr class="gradeA">';
+            $codigoHtml .= '<td><p align="center">'.round($row['ped_Clave']).'</p></td>';
+            $codigoHtml .= '<td><p align="center"> $ '.round($row['ped_ArtImpSol'],2).'</p></td>';
+            $codigoHtml .= '<td><p align="center">'.$row['prov_Clave'].'</p></td>';
+            $formatoFecha = new DateTime($row['ped_FecSol']);
+            $codigoHtml .= '<td><p align="center">'.$formatoFecha->format('d-m-Y H:i:s').'</p></td>';
+            $codigoHtml .= '</tr>';
+          }
+      } catch(Exception $e){
+            $codigoHtml .= '<tr class="gradeA">';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '</tr>';
+      }
+
+    header("Content-type: application/vnd.ms-$tipo");
+    header("Content-Disposition: attachment; filename=FarmaciasSanaSana$extension");
+    header("Pragma: no-cache");
+    header("Expires: 0");    
+    echo $codigoHtml;
+    
+$conex->cerrarConex();
+$conex2 = null;

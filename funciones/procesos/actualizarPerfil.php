@@ -1,0 +1,390 @@
+<?php
+session_start();
+require '../vistas/menuView.php';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../../js/jquery.validate.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui-1.9.2.min.js"></script>
+    <script type="text/javascript" src="../../js/sweetalert.min.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script type="text/javascript" src="../../js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script type="text/javascript" src="../../js/morris/raphael-2.1.0.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actualiza Datos</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/sweetalert.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="../../css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="../../css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <!-- Favicon -->
+   <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+   <script type="text/javascript">
+     function limpiarCajas() {
+        $('#comboGenero').val($('#comboGenero > option:first').val());
+        $('#comboStatus').val($('#comboStatus > option:first').val());
+        $('#comboPrivilegios').val($('#comboPrivilegios > option:first').val());
+         $(":text").each(function() {
+            $($(this)).val('');
+          });
+         $(':password').each(function() {
+            $($(this)).val('');
+         });
+      }
+       function soloLetras(e) {
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toLowerCase();
+          letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+          especiales = [8, 37, 39, 46];
+          tecla_especial = false;
+          for (var i in especiales) {
+            if (key == especiales[i]) {
+              tecla_especial = true;
+              break;
+            }
+          }
+          if (letras.indexOf(tecla) == -1 && !tecla_especial)
+             return false;
+          }
+          function soloNumeros(e)
+          {
+            var keynum = window.event ? window.event.keyCode : e.which;
+            if ((keynum == 8) || (keynum == 46))
+              return true;
+            return /\d/.test(String.fromCharCode(keynum));
+          }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#"><?php echo $_SESSION['tipoUsuario']?></a>-->
+                <p class="navbar-brand" href="#"><?php echo $_SESSION['tipoUsuario']?></p> 
+            </div>
+              <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;"> 
+                Farmacias Sana Sana &nbsp; 
+                <a href="cerrarSesion.php" class="btn btn-danger square-btn-adjust">Cerrar Sesión</a> 
+              </div>
+        </nav>   
+           <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                  <?php 
+                      menu('ActualizaPerfil');
+                      $nombreUsuario = $_SESSION['nombreUsuario'];
+                      $nombre = $_SESSION['nombre'];
+                      $ap_pat = $_SESSION['ap_pat'];
+                      $ap_mat = $_SESSION['ap_mat'];
+                      $edad = $_SESSION['edad'];
+                      $email = $_SESSION['email'];
+                      $genero = $_SESSION['genero'];
+                      $telefono = $_SESSION['telefono'];
+                      $direccion = $_SESSION['direccion'];
+                      $password = $_SESSION['password'];
+                      $tipoUsuario = $_SESSION['tipoUsuario'];
+                      $status = $_SESSION['status'];
+                  ?>
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2 align="center">
+                     <?php 
+                        echo $_SESSION['nombreCompleto'];
+                     ?>
+                     </h2>   
+                        <h5 align="center">Actualiza tus datos</h5>
+                    </div>
+                    <h5 align="center"><strong>Nota: Los datos con * son obligatorios.</strong></h5>
+                    <h5 align="center"><strong>Para ver los cambios realizados en tu perfil, cierra e inicia sesión nuevamente.</strong></h5>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                 <!--Empieza el formulario de registro-->
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>Actualiza Datos</strong>  
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" method="POST"+ name="formulario" id="formulario">
+                                    <br/>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                        <input value= <?php echo $nombreUsuario; ?> type="text" id="nombreUsuario" name="nombreUsuario" class="form-control" placeholder="* Ingresa un nombre de usuario" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-linux"></i></span>
+                                       <select class="form-control" id="comboPrivilegios" name="comboPrivilegios">
+                                        <option value="default">* Privilegios de usuario</option>
+                                        <?php
+                                          require 'conexion.php';
+                                          $conex = Conexion::getInstance();
+                                          $consultaIdPrivilegio = $conex->consultar("select * from privilegios where nombrePrivilegio = '".$tipoUsuario."'");
+                                          foreach ($consultaIdPrivilegio as $row) {
+                                            $tipoUsuario = $row['id_privilegio'];
+                                          }
+                                          $sql = "select * from privilegios";
+                                          $consulta = $conex->consultar($sql);
+                                          foreach ($consulta as $row) {
+                                            if($tipoUsuario == $row['id_privilegio']) {
+                                              echo '<option selected = "selected" value = "'.$row['id_privilegio'].'">'.$row['nombrePrivilegio'].'</option>';
+                                            } else {
+                                              echo '<option value = "'.$row['id_privilegio'].'">'.$row['nombrePrivilegio'].'</option>';
+                                            }
+                                          }
+                                        ?>
+                                       </select>                                        
+                                    </div>
+                                    <?php
+                                    //El número 7 es el tipo de usuario CLIENTE.
+                                      if($tipoUsuario == 7) {
+                                          echo '<div align="center" name="divSucursales" align="center" id="divSucursales" class="form-group input-group">
+                                                <label class="text-default">Selecciona Sucursales que podrá ver el cliente</label><br>';
+                                          $sqlSucursalesSeleccionadas = "SELECT * FROM accesoCliente ac INNER JOIN usuario u on ac.id_usuario = u.id_usuario where nombreUsuario = '".$nombreUsuario."'";
+                                          $sql = "select * from sucursales";
+                                          $consulta = $conex->consultar($sql);
+                                          foreach ($consulta as $row) {
+                                            $vistaSucursales = '<label><input type="checkbox"  id="checkSucursal" name="checkSucursal[]"'; 
+                                            foreach ($conex->consultar($sqlSucursalesSeleccionadas) as $sucursalesSeleccionadas) {
+                                              if($row['id_sucursal'] == $sucursalesSeleccionadas['id_sucursal']){
+                                                $vistaSucursales .= ' checked ';
+                                              } 
+                                            }
+                                            $vistaSucursales .= 'value="'.$row["id_sucursal"].'"> '.$row["nombreSucursal"].' </label><br>';
+                                            echo $vistaSucursales;
+                                          }
+                                          echo '</div>';
+                                      } else {
+                                        echo '<div align="center" style="display:none;" name="divSucursales" align="center" id="divSucursales" class="form-group input-group">
+                                                <label class="text-default">Selecciona Sucursales que podrá ver el cliente</label><br>';
+                                          $sqlSucursalesSeleccionadas = "SELECT * FROM accesoCliente ac INNER JOIN usuario u on ac.id_usuario = u.id_usuario where nombreUsuario = '".$nombreUsuario."'";
+                                          $sql = "select * from sucursales";
+                                          $consulta = $conex->consultar($sql);
+                                          foreach ($consulta as $row) {
+                                            $vistaSucursales = '<label><input type="checkbox"  id="checkSucursal" name="checkSucursal[]"'; 
+                                            foreach ($conex->consultar($sqlSucursalesSeleccionadas) as $sucursalesSeleccionadas) {
+                                              if($row['id_sucursal'] == $sucursalesSeleccionadas['id_sucursal']){
+                                                $vistaSucursales .= ' checked ';
+                                              } 
+                                            }
+                                            $vistaSucursales .= 'value="'.$row["id_sucursal"].'"> '.$row["nombreSucursal"].' </label><br>';
+                                            echo $vistaSucursales;
+                                          }
+                                          echo '</div>';
+                                      }
+                                      $conex->cerrarConex();
+                                    ?>
+                                    <input value = <?php echo $_SESSION['id_usuario']; ?> style="display:none" type="text" id="id_usuario" name="id_usuario" class="form-control" placeholder="* ID USUARIO" />
+                                    <div id="divNombre" name="divNombre">
+                                        <div align="center" class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+                                             <input value = <?php echo $nombre;?> type="text" id="nombre" name="nombre" class="form-control" placeholder="* Nombre" />
+                                        </div>
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-circle-o"  ></i></span>
+                                         <input value = <?php echo $ap_pat; ?> type="text" id="ap_pat" name="ap_pat" onkeypress="return soloLetras(event);" class="form-control" placeholder="* Apellido Paterno" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-circle-o"  ></i></span>
+                                         <input type="text" value = <?php echo $ap_mat; ?> id="ap_mat" name="ap_mat" onkeypress="return soloLetras(event);" class="form-control" placeholder="* Apellido Materno" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+                                       <select class="form-control" id="comboGenero" name="comboGenero">
+                                        <option value="default">* Género (Sexo)</option>
+                                        <option <?php if($genero == 'Hombre') echo 'selected="selected"'; ?> value="Hombre">Hombre</option>
+                                        <option <?php if($genero == 'Mujer') echo 'selected="selected"'; ?> value="Mujer">Mujer</option>
+                                       </select>                                        
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-circle-o"  ></i></span>
+                                         <input type="text" value = <?php echo $edad; ?> id="edad" name="edad" maxlength="2" onkeypress="return soloNumeros(event);" class="form-control" placeholder="Edad" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                        <input type="text" value = <?php echo $telefono; ?> id="telefono" maxlength="10" name="telefono" onkeypress="return soloNumeros(event);" class="form-control" placeholder="Teléfono" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon">@</span>
+                                        <input type="text" value = <?php echo $email; ?> id="email" name="email" class="form-control" placeholder="Ingresa un Email" />
+                                    </div>
+                                    <div align="center" class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+                                        <input type="text" value = <?php echo $direccion; ?> id="direccion" name="direccion" class="form-control" placeholder="Dirección" />
+                                    </div>
+                                      <div align="center" class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" value = <?php echo $password; ?> id="password" name="password" class="form-control" placeholder="* Ingresa una Contraseña" />
+                                        </div>
+                                     <div align="center" class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" value = <?php echo $password; ?> id="password2" name="password2" class="form-control" placeholder="* Confirma la Contraseña" />
+                                        </div>
+                                     <div align="center">
+                                    <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-circle-o"></i></span>
+                                       <select class="form-control" id="comboStatus" name="comboStatus">
+                                        <option value="default">* Selecciona el Estatus</option>
+                                        <option <?php if($status == 1) echo 'selected="selected"'; ?> value="1">Activo</option>
+                                        <option <?php if($status == 0) echo 'selected="selected"'; ?> value="0">Inactivo</option>
+                                       </select>                                        
+                                    </div>
+                                      <button id="btnAceptar" name="btnAceptar" class="btn btn-success">Actualizar Datos</button>
+                                    </div>
+                                    <hr />
+                                    </form>
+                            </div>
+    
+  <script>
+    $(document).ready(function() {
+     $("#comboPrivilegios").change(function() {
+          var comboPrivilegios = $(this).val();
+          //El número 7 es el privilegio de Cliente
+          if(comboPrivilegios == '7'){
+            document.getElementById('divSucursales').style.display = 'block';
+          } 
+          else {
+            document.getElementById('divProveedor').style.display = 'none';
+            document.getElementById('divNombre').style.display = 'block';
+            document.getElementById('divSucursales').style.display = 'none';
+            $( "#divProveedor" ).prop( "disabled", true);
+          }
+        });
+      });
+    </script>
+    <script>
+    $(document).ready(function() {
+    $.validator.addMethod("validarComboVacio", 
+      function(value, element, arg){ 
+      return arg != value; }, 
+      "<p class='text-danger'>Selecciona una opción</p>"); 
+
+    $("#formulario").validate({
+        rules: {
+            nombreUsuario: {
+              required: true,
+              remote: "validarActualizarPerfil.php"
+            },
+            comboPrivilegios: {
+              validarComboVacio: "default"
+            },
+            nombre: {
+              required: true
+            },
+            ap_pat: {
+              required: true
+            },
+            ap_mat: {
+              required: true
+            },
+            comboGenero: {
+              validarComboVacio: "default"
+            },
+            email: {
+              email: true
+            },
+            password: {
+              required: true,
+            },
+            password2: {
+              required: true,
+              equalTo: password
+            },
+            comboStatus: {
+              validarComboVacio: "default"
+            }
+        },
+        messages: {
+            nombreUsuario: {
+              required: "<p align='center' class='text-danger'> Debes ingresar un nombre de usuario</p>",
+              remote: "<font color='red' align='center'> ¡Error! El usuario ya está registrado en la base de datos</font>"
+            }, 
+            nombre: {
+              required: "<p align='center' class='text-danger'> Debes ingresar el nombre del usuario</p>"
+            },
+            ap_pat: {
+              required: "<p align='center' class='text-danger'> Debes ingresar un Apellido Paterno</p>"
+            },
+            ap_mat: {
+              required: "<p align='center' class='text-danger'> Debes ingresar un Apellido Materno</p>"
+            },
+            email: {
+              email: "<p align='center' class='text-danger'> Ingresa un Email correcto </p>"
+            },
+            password: {
+              required: "<p align='center' class='text-danger'> Debes ingresar una Contraseña</p>"
+            },
+            password2: {
+              required: "<p align='center' class='text-danger'> Confirma la contraseña</p>",
+              equalTo: "<p align='center' class='text-danger'> Las Contraseñas no coinciden</p>"
+            }
+        },
+        submitHandler: function(){
+            $.ajax({
+                  type: "POST",
+                  url: 'actualizarUsuario.php',
+                  data: $('#formulario').serialize(),
+                  success: function(data) {
+                    if(data == 'error') {
+                      swal({title: "¡Error!",text: "Ha ocurrido un error al actualizar los datos, por favor contacta al programador.",   type: "error",closeOnConfirm: "Aceptar"},
+                        function(){
+                          window.location.href='panelAdmin.php';
+                        });
+                    } else {
+                      swal({title: "¡Éxito!",text: "Tus datos se han actualizado correctamente, para visualizar los cambios, cierra e inicia sesión nuevamente.",   type: "success",closeOnConfirm: "Aceptar"},
+                        function(){
+                          window.location.href='panelAdmin.php';
+                        });
+                    }
+                  }
+             });
+        }
+    });
+  });
+    </script>
+                        </div>
+                    </div>
+                    <!--Finaliza Formulario de registro-->
+
+
+              </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+         <!-- METISMENU SCRIPTS -->
+    <script src="../../js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="../../js/custom.js"></script>
+</body>
+</html>
+

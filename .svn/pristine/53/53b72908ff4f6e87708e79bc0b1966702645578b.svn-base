@@ -1,0 +1,78 @@
+<?php
+session_start();
+
+//Creación del objeto de conexión
+require '../conexion.php';
+$conex = Conexion::getInstance();
+$tipo = $_REQUEST['tipo'];
+if($tipo == 'excel') $extension = '.xls';
+if($tipo == 'word') $extension = '.doc';
+
+//Consulta a la base de datos para saber el nombre de la sucursal
+$numPedido = $_SESSION['numPedido'];
+$nombreDB = $_SESSION['nombreDB'];
+
+$codigoHtml = '
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Reporte Detalle Pedidos</title>
+</head>
+<body>	
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="7" bgcolor="skyblue"><CENTER><strong>REPORTE DETALLE PEDIDO NO. PEDIDO '. $numPedido.' </strong></CENTER></td>
+  </tr>
+  <thead>
+          <tr>
+            <th bgcolor="#0FEC76" align="center">SKU </th>
+            <th bgcolor="#0FEC76" align="center">Artículo</th>
+            <th bgcolor="#0FEC76" align="center">Cantidad</th>
+            <th bgcolor="#0FEC76" align="center">Costo</th>
+            <th bgcolor="#0FEC76" align="center">IVA</th>
+            <th bgcolor="#0FEC76" align="center">Subtotal</th>
+            <th bgcolor="#0FEC76" align="center">Total</th>
+           </tr>
+   </tr>
+   </thead>';
+
+    $sql = "select art_Clave as 'SKU', art_Nombre as 'ARTICULO', peda_Cantidad as 'CANTIDAD', peda_Costo as 'COSTO', peda_IVA as 'IVA', peda_SubTotal as 'SUBTOTAL', peda_Importe as 'TOTAL' FROM tPedidoArticulo WHERE ped_Clave = ".$numPedido;
+
+  $passwordSucursal = "S@na*s1";
+  $ipSucursal = '192.168.1.151';
+    
+    //Conexión a Sucursal Local
+      try{
+      	$conex2 = $conex->conectarByIPandPasswordandDBName($ipSucursal, $passwordSucursal, $nombreDB);
+          foreach ($conex2->consultarByConex($conex2, $sql) as $row) {
+            $codigoHtml .= '<tr class="gradeA">';
+            $codigoHtml .= '<td><p align="center">'.$row['SKU'].'</p></td>';
+            $codigoHtml .= '<td><p align="center">'.$row['ARTICULO'].'</p></td>';
+            $codigoHtml .= '<td><p align="center">'.round($row['CANTIDAD'],2).'</p></td>';
+            $codigoHtml .= '<td><p align="center"> $ '.round($row['COSTO'],2).'</p></td>';
+            $codigoHtml .= '<td><p align="center"> $ '.round($row['IVA']).'</p></td>';
+            $codigoHtml .= '<td><p align="center"> $ '.round($row['SUBTOTAL']).'</p></td>';
+            $codigoHtml .= '<td><p align="center"> $ '.round($row['TOTAL']).'</p></td>';
+            $codigoHtml .= '</tr>';
+          }
+      } catch(Exception $e){
+            $codigoHtml .= '<tr class="gradeA">';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '<td><p align="center" class="text-danger">Servidor fuera de línea </p></td>';
+            $codigoHtml .= '</tr>';
+      }
+
+    header("Content-type: application/vnd.ms-$tipo");
+    header("Content-Disposition: attachment; filename=FarmaciasSanaSana$extension");
+    header("Pragma: no-cache");
+    header("Expires: 0");    
+    echo $codigoHtml;
+
+$conex->cerrarConex();
+$conex2 = null;
